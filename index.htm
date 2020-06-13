@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Extending JS natives</title>
+  <style>
+    pre:nth-child(2n+1) { background-color:#f1f1f1 }
+  </style>
+</head>
+
+<body>
+  <div id="domconsole"></div>
+  <script type="text/javascript">
+     function log() {
+      var entry = document.createElement('pre');
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = JSON.stringify(arguments[_key], null, '');}
+      entry.textContent = args.join(', ');
+      window.domconsole.appendChild(entry);
+    }
+    console.log = log;
+    window.onerror = log;
+  </script>
+
+  <script src="src/vec3.js"></script>
+</body>
+</html>
