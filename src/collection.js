@@ -51,6 +51,3 @@ class Collection extends Array {
 
   // and even more methods.
 }
-
-
-// TODO filter, some, every, find,

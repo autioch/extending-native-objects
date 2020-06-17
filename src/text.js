@@ -14,9 +14,8 @@ const VOWEL_REGEX = /[aeiou]/gi;
 
 /* Functional */
 function getVowels(str){
-  return str?.match(VOWEL_REGEX) ?? [];
+  return str?.match(/[aeiou]/gi) ?? [];
 }
-
 
 console.log('fp', getVowels(''));
 console.log('fp', getVowels('a'));
@@ -27,12 +26,15 @@ console.log('fp', getVowels(String('huh')));
 
 /* Custom ES6 class */
 class VowelString {
+
+  #value
+
   constructor(value){
-    this.value = value;
+    this.#value = value;
   }
 
   getVowels(){
-    return this.value.match(VOWEL_REGEX) ?? [];
+    return this.#value.match(VOWEL_REGEX) ?? [];
   }
 }
 
@@ -64,7 +66,32 @@ let customString = new CustomString('test');
 customString = 'b';
 
 try {
-console.log('extending class override', customString.getVowels());
+console.log('extending class override', customString.getVowels);
 } catch (err){
   console.log(err.message);
 }
+
+let nextId = 0;
+
+class Item {
+  constructor(){
+    this.id = nextId++;
+  }
+}
+
+class CustomString2 extends Item {
+
+  #value
+
+  constructor(value){
+    super();
+    this.#value = value;
+  }
+
+  getVowels(){
+    return this.#value.match(/[aeiou]/gi) ?? [];
+  }
+}
+
+
+new CustomString2('hmm. oh.').getVowels();

@@ -77,19 +77,12 @@ class Vec3 extends Array {
 const pointFirst = new Vec3(2, 3, 4);
 const pointSecond = new Vec3(4, -1, 2);
 
-console.log(pointSecond);
 console.log('distance', pointFirst.distance(pointSecond))
-console.log(pointSecond);
 console.log('add', pointFirst.clone().add(pointSecond))
-console.log(pointSecond);
 console.log('substract', pointFirst.clone().substract(pointSecond))
-console.log(pointSecond);
 console.log('divide', pointFirst.clone().divide(pointSecond))
-console.log(pointSecond);
 
 pointSecond.x = 1;
 pointSecond.y = 1;
 pointSecond.z = 1;
-console.log(pointSecond);
-pointSecond.normalize()
-console.log('normalize', pointSecond)
+console.log('normalize', pointSecond.normalize())
